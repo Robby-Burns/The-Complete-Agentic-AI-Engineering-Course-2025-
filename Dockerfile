@@ -6,7 +6,8 @@ WORKDIR /app
 
 # Copy the requirements file and install dependencies
 COPY requirements.txt .
-RUN pip install uv && uv pip install -r requirements.txt
+RUN pip install uv && uv venv
+RUN uv pip install -r requirements.txt
 
 # Copy the rest of your project files
 COPY . .
