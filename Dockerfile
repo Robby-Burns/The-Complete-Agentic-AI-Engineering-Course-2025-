@@ -1,16 +1,15 @@
-# Use a lightweight official Python image
+# Dockerfile
 FROM python:3.11-slim
 
-# Set the working directory
 WORKDIR /app
 
-# Copy the requirements file and install dependencies
+# Install dependencies
 COPY requirements.txt .
-RUN pip install uv && uv venv
-RUN uv pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of your project files
+# Copy project files
 COPY . .
 
-# The default command to run your app
-CMD ["uv", "run", "python", "app.py"]
+# Run FastAPI app
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8080"]
+
