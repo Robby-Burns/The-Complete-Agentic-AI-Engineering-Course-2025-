@@ -1,2 +1,8 @@
 secrets.yaml
 secrets.yaml
+
+# Local artifacts & secrets
+key.json
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
